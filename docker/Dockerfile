@@ -2,8 +2,8 @@ FROM docker.io/python:3.9-alpine
 ENV PYTHONUNBUFFERED 1
 WORKDIR /opt/app-root/src
 
-# Install Bash and Caddy
-RUN apk add --no-cache bash caddy \
+# Install Bash, Caddy, and Cron
+RUN apk add --no-cache bash caddy dcron \
  && rm -rf /var/cache/apk/*
 
 # Install CVD-Update
