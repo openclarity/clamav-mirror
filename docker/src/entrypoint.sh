@@ -3,13 +3,6 @@ set -eo pipefail
 
 CVD_DIR="${CVD_DIR:=/mnt/cvdupdate}"
 
-# Add the cron job
-create_cron_job() {
-    echo "Creating a cron job to update ClamAV signatures every 3 hours..."
-    echo "0 */3 * * * /opt/app-root/src/entrypoint.sh update" | crontab -
-    crond
-}
-
 # Configuration Functions
 check_config() {
     if [ ! -e $CVD_DIR/config.json ]; then
@@ -72,7 +65,6 @@ status)
 
 serve)
     check_database
-    create_cron_job
     serve_database
 ;;
 

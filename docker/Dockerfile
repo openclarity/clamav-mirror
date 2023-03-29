@@ -3,7 +3,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /opt/app-root/src
 
 # Install Bash, Caddy, and Cron
-RUN apk add --no-cache bash caddy dcron \
+RUN apk add --no-cache bash caddy \
  && rm -rf /var/cache/apk/*
 
 # Install CVD-Update
